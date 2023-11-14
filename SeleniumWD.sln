@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeleniumExamples", "SeleniumProjects\SeleniumExamples.csproj", "{32DE6A95-5BC3-4811-A9FC-F5A7C7219774}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeleniumExamples", "SeleniumProjects\SeleniumExamples.csproj", "{32DE6A95-5BC3-4811-A9FC-F5A7C7219774}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeleniumNUnitExamples", "SeleniumNUnitExamples\SeleniumNUnitExamples.csproj", "{ADD370A7-5A50-4AB0-B1B1-75AD596594EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeleniumNUnitExamples", "SeleniumNUnitExamples\SeleniumNUnitExamples.csproj", "{ADD370A7-5A50-4AB0-B1B1-75AD596594EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assignment", "Assignment\Assignment.csproj", "{CAFDB1DF-C1A9-4900-B385-F52A7A057F34}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{ADD370A7-5A50-4AB0-B1B1-75AD596594EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ADD370A7-5A50-4AB0-B1B1-75AD596594EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ADD370A7-5A50-4AB0-B1B1-75AD596594EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAFDB1DF-C1A9-4900-B385-F52A7A057F34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAFDB1DF-C1A9-4900-B385-F52A7A057F34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAFDB1DF-C1A9-4900-B385-F52A7A057F34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAFDB1DF-C1A9-4900-B385-F52A7A057F34}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
