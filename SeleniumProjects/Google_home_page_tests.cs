@@ -108,10 +108,10 @@ namespace SeleniumExamples
         {
             driver.FindElement(By.ClassName("gb_d")).Click();
             Thread.Sleep(2000);
-            //driver.FindElement(By.XPath("//*[@id=\'yDmH0d']/c-wiz/div/div/c-wiz/div/div/div[2]/div[2]/div[1]/ul/li[4]/a/span"));
-            driver.FindElement(By.CssSelector("//*[@class='LVal7b']/ul/li[4]/a/span[text()='YouTube']")).Click();
+            driver.FindElement(By.XPath("//a[@class='tX9u1b' and @href='https://www.youtube.com']")).Click();
             Thread.Sleep(2000);
             Assert.That("YouTube".Equals( driver.Title));
+            Console.WriteLine("YouTube test - passed");
         }
 
 
