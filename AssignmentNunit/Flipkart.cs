@@ -19,8 +19,8 @@ namespace AssignmentNUnit
             WebDriverWait wait = new WebDriverWait(driver,TimeSpan.FromSeconds(5));
             IWebElement search = wait.Until(d=>d.FindElement(By.ClassName("Pke_EE")));
             search.SendKeys("Laptop");
-            search.SendKeys(Keys.Enter);
-           
+          //  search.SendKeys(Keys.Enter);
+           driver.FindElement(By.ClassName("_2iLD__")).Click();
         }
     }
 }
