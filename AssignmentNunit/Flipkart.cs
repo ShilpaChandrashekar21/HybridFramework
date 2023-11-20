@@ -15,8 +15,7 @@ namespace AssignmentNUnit
         public void SearchTest()
         {
             driver.FindElement(By.XPath("//*[@class = '_30XB9F']")).Click();
-           Thread.Sleep(4000);  
-
+           
             WebDriverWait wait = new WebDriverWait(driver,TimeSpan.FromSeconds(5));
             IWebElement search = wait.Until(d=>d.FindElement(By.ClassName("Pke_EE")));
             search.SendKeys("Laptop");
