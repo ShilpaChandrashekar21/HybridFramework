@@ -4,6 +4,7 @@ using SeleniumExtras.WaitHelpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Intrinsics.X86;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -121,6 +122,14 @@ namespace SeleniumNUnitExamples
 
             emailInput.SendKeys(email);
             password.SendKeys(pass);
+           
+
+            IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
+            js.ExecuteScript("arguments[0].scrollIntoView(true); ",
+                driver.FindElement(By.XPath("//button[@type='submit']")));
+            js.ExecuteScript("arguments[0].click(); ",
+                driver.FindElement(By.XPath("//button[@type='submit']")));
+            ScreenShotTest();
             ClearForm(emailInput);
             ClearForm(password);
             Thread.Sleep(2000);
@@ -135,6 +144,9 @@ namespace SeleniumNUnitExamples
                 new object[] {"qre123@ju.com", "56789" }
             };
         }
+
+        
+        
         
     }
 }
