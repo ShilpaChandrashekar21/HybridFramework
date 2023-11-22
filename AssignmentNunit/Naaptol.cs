@@ -49,6 +49,7 @@ namespace AssignmentNUnit
             Console.WriteLine(fwait.Message);
 
             IWebElement select = driver.FindElement(By.Id("productItem" + numOf));
+            //string pname;
             select.Click();
 
             List<string> lstWindow = driver.WindowHandles.ToList();
@@ -58,6 +59,7 @@ namespace AssignmentNUnit
                 Console.WriteLine("Switching to window: " + i);
                 driver.SwitchTo().Window(i);
             }
+            //Assert.That(d);
             Assert.That(driver.Url.Contains("reading"));
             Console.WriteLine("SelectProductTest: Passed");
 

@@ -9,7 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeleniumNUnitExamples", "Se
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Assignment", "Assignment\Assignment.csproj", "{CAFDB1DF-C1A9-4900-B385-F52A7A057F34}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssignmentNUnit", "AssignmentNunit\AssignmentNUnit.csproj", "{977EF8B0-F1BB-4929-9238-D867CD588CA4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AssignmentNUnit", "AssignmentNunit\AssignmentNUnit.csproj", "{977EF8B0-F1BB-4929-9238-D867CD588CA4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rediff", "Rediff\Rediff.csproj", "{9E3734BD-BBCF-4690-A141-0BF32DD0F858}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Naaptol", "Naaptol", "{9A92257E-FF1C-494A-A62D-EB7CF7E4901F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NaaptolWebsite", "NaaptolWebsite\NaaptolWebsite.csproj", "{7FC21571-0465-4C49-AB87-488CAD58038C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,9 +39,20 @@ Global
 		{977EF8B0-F1BB-4929-9238-D867CD588CA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{977EF8B0-F1BB-4929-9238-D867CD588CA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{977EF8B0-F1BB-4929-9238-D867CD588CA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E3734BD-BBCF-4690-A141-0BF32DD0F858}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E3734BD-BBCF-4690-A141-0BF32DD0F858}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E3734BD-BBCF-4690-A141-0BF32DD0F858}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E3734BD-BBCF-4690-A141-0BF32DD0F858}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FC21571-0465-4C49-AB87-488CAD58038C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FC21571-0465-4C49-AB87-488CAD58038C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FC21571-0465-4C49-AB87-488CAD58038C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FC21571-0465-4C49-AB87-488CAD58038C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7FC21571-0465-4C49-AB87-488CAD58038C} = {9A92257E-FF1C-494A-A62D-EB7CF7E4901F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {568E97DC-3005-45C7-8919-7B5E186C6BB4}
