@@ -57,7 +57,6 @@ namespace BunnyCart.pageObjects
             email,string pwd,string cpwd,string phnum)
         {
             
-
             DefaultWait<IWebDriver> fwait = new DefaultWait<IWebDriver>(driver);
             fwait.Timeout = TimeSpan.FromSeconds(10);
             fwait.IgnoreExceptionTypes(typeof(NoSuchElementException));

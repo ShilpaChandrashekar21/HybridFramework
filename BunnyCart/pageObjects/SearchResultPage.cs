@@ -18,16 +18,18 @@ namespace BunnyCart.pageObjects
             PageFactory.InitElements(driver, this);
         }
 
-        [FindsBy(How = How.XPath, Using = "(//a[@class='product-item-link' ])[2]")]
-        private IWebElement? SearchedResult {  get; }
 
-        public string? GetSearchedResult()
+        
+        public string? GetSearchedResult(int count)
         {
+            IWebElement? SearchedResult = driver.FindElement(By.XPath("(//a[@class='product-item-link'])[" + count + "]"));
+            //Thread.Sleep(10000);            
             return SearchedResult?.Text;
         }
 
-        public ProductPage ClickOnSearchedResult()
+        public ProductPage ClickOnSearchedResult(int count)
         {
+            IWebElement? SearchedResult = driver.FindElement(By.XPath("(//a[@class='product-item-link'])[" + count + "]"));
             SearchedResult?.Click();
             return new ProductPage(driver);
         }

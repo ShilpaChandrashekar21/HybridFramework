@@ -13,6 +13,12 @@ namespace BunnyCart
     {
         Dictionary<string, string>? properties;
         public IWebDriver driver;
+        public static void ScrollIntoView(IWebDriver driver, IWebElement element)
+        {
+            IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
+            js.ExecuteScript("arguments[0].scrollIntoView(true); ", element);
+            //js.ExecuteScript("window.scrollBy(0,250);", element);
+        }
         public void ReadConfigSettings()
         {
             string currDir = Directory.GetParent(@"../../../").FullName;

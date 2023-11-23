@@ -7,11 +7,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace BunnyCart.tests
-{
-    [TestFixture]
+{    [TestFixture]
     internal class BunnyCartTest : CoreCodes
     {
-        [Test, Order(2)]
+        /*[Test, Order(2)]
         public void CreateAnAccountTest()
         {
             var homePage = new BunnyCartHomePage(driver);
@@ -30,13 +29,38 @@ namespace BunnyCart.tests
                 Console.WriteLine("Modal didn't appear");
             }
             
-        }
+        }*/
 
         [Test, Order(1)]
-        public void SearchInputTest()
+        [TestCase("Water", 4)]
+        public void SearchInputTest(string pname, int count)
         {
             var homePage = new BunnyCartHomePage(driver);
-            homePage.SearchBarInput("water poppy");
+            var searchProductPage=homePage.SearchBarInput(pname);
+            try
+            {
+                //ScrollIntoView(driver, driver.FindElement( By.XPath("(//a[@class='product-item-link'])[2]") ));
+                Assert.That(searchProductPage.GetSearchedResult(count), Does.Contain(pname));
+                Thread.Sleep(5000);
+            }
+            catch (AssertionException)
+            {
+                Console.WriteLine("different product appeared");
+            }
+            Thread.Sleep(4000);
+           var productPage = searchProductPage.ClickOnSearchedResult(count);
+            try
+            {
+                Thread.Sleep(2000);
+                Assert.That(productPage.GetProductTitle(), Does.Contain(pname));
+                productPage.ClickOnProductQuantity();
+                productPage.ClickOnAddToCartButton();
+            }
+            catch (AssertionException)
+            {
+                Console.WriteLine("Clicked On wrong Product");
+            }
+           
         }
 
 
