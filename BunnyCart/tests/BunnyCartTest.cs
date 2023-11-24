@@ -1,4 +1,5 @@
 ﻿using BunnyCart.pageObjects;
+using BunnyCart.utilities;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
@@ -7,62 +8,63 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace BunnyCart.tests
-{    [TestFixture]
+{
+    [TestFixture, Order(2)]
     internal class BunnyCartTest : CoreCodes
     {
-        /*[Test, Order(2)]
+        [Test]
         public void CreateAnAccountTest()
         {
             var homePage = new BunnyCartHomePage(driver);
-          
+
             homePage.ClickOnCreateAccountLink();
             try
             {
                 Assert.That(driver.FindElement(By.XPath("//div[@class='modal-inner-wrap']" +
                 "//following::h1[2]")).Text, Is.EqualTo("Create an Account"));
+                
+                test = extent.CreateTest("Create Account Link Test - Pass");
+                test.Pass("Create Account Link success");
+                Console.WriteLine("ERCP");
 
-                homePage.CreateAccountLinkInput("alpha", "xyz", "alpha@df.com",
-                   "1234", "1234", "9876543210");
             }
             catch (AssertionException)
             {
                 Console.WriteLine("Modal didn't appear");
-            }
-            
-        }*/
 
-        [Test, Order(1)]
-        [TestCase("Water", 4)]
-        public void SearchInputTest(string pname, int count)
-        {
-            var homePage = new BunnyCartHomePage(driver);
-            var searchProductPage=homePage.SearchBarInput(pname);
-            try
-            {
-                //ScrollIntoView(driver, driver.FindElement( By.XPath("(//a[@class='product-item-link'])[2]") ));
-                Assert.That(searchProductPage.GetSearchedResult(count), Does.Contain(pname));
-                Thread.Sleep(5000);
+                test = extent.CreateTest("Create Account Link Test - Fail");
+                test.Fail("Create Account Link failed");
+                Console.WriteLine("ERCF");
             }
-            catch (AssertionException)
+            /*Assert.That(driver?.FindElement(By.XPath("//div[" +
+                 "@class='modal-inner-wrap']//following::h1[2]")).Text,
+                 Is.EqualTo("Create an Account"));*/
+
+            string? currDir = Directory.GetParent(@"../../../")?.FullName;
+            string? excelFilePath = currDir + "/TestData/InputData.xlsx";
+            string? sheetName = "CreateAccountData";
+
+            List<CreateAccount> excelDataList = ExcelUtils.ReadCreateAccountExcelData(excelFilePath, sheetName);
+
+            foreach (var excelData in excelDataList)
             {
-                Console.WriteLine("different product appeared");
+
+                string? firstName = excelData?.FirstName;
+                string? lastName = excelData?.LastName;
+                string? email = excelData?.Email;
+                string? password = excelData?.Password;
+                string? confirmPassword = excelData?.ConfirmPassword;
+                string? mobileNum = excelData?.MobileNumber;
+
+                Console.WriteLine($"First Name: {firstName}, Last Name: {lastName}, Email: {email}, Password: {password}, Confirm Password: {confirmPassword}, Mobile Number: {mobileNum}");
+                homePage.CreateAccountLinkInput(firstName, lastName, email, password, confirmPassword, mobileNum);
+                
+
             }
-            Thread.Sleep(4000);
-           var productPage = searchProductPage.ClickOnSearchedResult(count);
-            try
-            {
-                Thread.Sleep(2000);
-                Assert.That(productPage.GetProductTitle(), Does.Contain(pname));
-                productPage.ClickOnProductQuantity();
-                productPage.ClickOnAddToCartButton();
-            }
-            catch (AssertionException)
-            {
-                Console.WriteLine("Clicked On wrong Product");
-            }
-           
+
+
+
+
         }
-
-
     }
 }

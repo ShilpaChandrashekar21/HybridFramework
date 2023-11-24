@@ -11,7 +11,7 @@ namespace SeleniumNUnitExamples
                   //will contain more than one test case
     internal class GoogleHomePageTests : CoreCodes
     {
-        [Ignore("other")]
+        
         [Test]
         [Order(10)]
         public void TitleTest()
@@ -21,18 +21,31 @@ namespace SeleniumNUnitExamples
             Assert.That(title, Is.EqualTo("Google"));
             Console.WriteLine("Title test - Passed");
         }
-        [Ignore("other")]
+       // [Ignore("other")]
         [Test]
         [Order(21)]
         public void GoogleSearchTest()
         {
-            IWebElement searchinputbox = driver.FindElement(By.Id("APjFqb"));
-            searchinputbox.SendKeys("hp laptop");
-            Thread.Sleep(2000);
-             IWebElement gsbutton = driver.FindElement(By.ClassName("gNO89b"));
-            gsbutton.Click();
-            Assert.That(driver.Title, Is.EqualTo("hp laptop - Google Search"));
-            Console.WriteLine("Google search test - Passed");
+            string? currDir = Directory.GetParent(@"../../../").FullName;
+            string? excelFilePath = currDir + "\\InputData.xlsx";
+            Console.WriteLine(excelFilePath);
+
+            List<GoogleSearchExcel> excelDataList = GSExcelUtils.ReadExcelData(excelFilePath);
+           foreach(var excel in excelDataList)
+            {
+                Console.WriteLine("Text "+ excel.SearchText);
+
+                IWebElement searchinputbox = driver.FindElement(By.Id("APjFqb"));
+                searchinputbox.SendKeys(excel.SearchText);
+                Thread.Sleep(2000);
+                IWebElement gsbutton = driver.FindElement(By.ClassName("gNO89b"));
+                gsbutton.Click();
+                Assert.That(driver.Title, Is.EqualTo(excel.SearchText +" - Google Search"));
+                Console.WriteLine("Google search test - Passed");
+                driver.Navigate().GoToUrl("https://www.google.com/");
+            }
+            
+            
         }
         [Ignore("other")]
         [Test]
