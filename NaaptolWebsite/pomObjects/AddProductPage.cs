@@ -18,19 +18,19 @@ namespace NaaptolWebsite.pomObjects
         }
 
         [FindsBy(How = How.LinkText,Using = "Black-2.50")]
-        public IWebElement SelectPower {  get; set; }
+        public IWebElement? SelectPower {  get; set; }
 
         [FindsBy(How = How.Id, Using = "cart-panel-button-0")]
-        public IWebElement AddSelectedProduct { get; set; }
+        public IWebElement? AddSelectedProduct { get; set; }
 
         public void SelectPowerLink()
         {
-            SelectPower.Click();
+            SelectPower?.Click();
         }
 
         public CartPage AddSelectedProductLink()
         {
-            AddSelectedProduct.Click();
+            AddSelectedProduct?.Click();
             return new CartPage(driver);
         }
     }

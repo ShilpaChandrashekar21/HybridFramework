@@ -17,7 +17,7 @@ namespace NaaptolWebsite.pomObjects
             PageFactory.InitElements(driver, this);
         }
 
-        [FindsBy(How = How.Id, Using = "productItem5")]
+        [FindsBy(How = How.Id, Using = "productItem6")]
         public IWebElement? SelectProduct {  get; set; }
 
         public AddProductPage SelectAProduct()

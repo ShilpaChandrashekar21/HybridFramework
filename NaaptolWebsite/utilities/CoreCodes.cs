@@ -1,4 +1,6 @@
-﻿using OpenQA.Selenium;
+﻿using AventStack.ExtentReports;
+using AventStack.ExtentReports.Reporter;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
 using System;
@@ -13,6 +15,10 @@ namespace NaaptolWebite
     {
         Dictionary<string, string>? properties;
         public IWebDriver driver;
+
+        public ExtentReports extent;
+        ExtentSparkReporter sparkReporter;
+        public ExtentTest test;
         public void ReadConfigSettings()
         {
             string currDir = Directory.GetParent(@"../../../").FullName;
@@ -37,9 +43,13 @@ namespace NaaptolWebite
         public void InitializeBrowser() 
         {
             ReadConfigSettings();
-            
-               
-                if (properties["browser"].ToLower() == "chrome")
+            string currDir = Directory.GetParent(@"../../../").FullName;
+
+            extent = new ExtentReports();
+            sparkReporter = new ExtentSparkReporter(currDir + "/extentReports/extent-report"
+                + DateTime.Now.ToString("yyyy_MM_dd/HH-mms-s") + ".html");
+
+            if (properties["browser"].ToLower() == "chrome")
                 {
                     driver = new ChromeDriver();
                 }
@@ -86,6 +96,7 @@ namespace NaaptolWebite
         public void Cleanup()
         {
             driver.Quit();
+            extent.Flush();
         }
     }
 }
