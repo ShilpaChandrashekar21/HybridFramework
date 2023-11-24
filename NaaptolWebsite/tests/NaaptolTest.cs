@@ -22,7 +22,7 @@ namespace NaaptolWebsite.tests
             var naaptolHomePage = new NaaptolHomePage(driver);
 
             string? currDir = Directory.GetParent(@"../../../")?.FullName;
-            string? excelFilePath = currDir + "/TestExcelData/InputData.xlsx";
+            string? excelFilePath = currDir + "/testExcelData/InputData.xlsx";
             string? sheetName = "NaaptolTestData";
 
             List<TestData> searchDataList = ExcelUtils.ReadExcelData(excelFilePath, sheetName);

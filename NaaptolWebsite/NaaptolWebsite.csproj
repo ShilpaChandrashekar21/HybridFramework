@@ -29,7 +29,7 @@
 
   <ItemGroup>
     <Folder Include="extentReports\" />
-    <Folder Include="TestExcelData\" />
+    <Folder Include="testExcelData\" />
     <Folder Include="screenShots\" />
   </ItemGroup>
 
