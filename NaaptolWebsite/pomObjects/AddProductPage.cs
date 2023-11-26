@@ -17,13 +17,13 @@ namespace NaaptolWebsite.pomObjects
             PageFactory.InitElements(driver, this);
         }
 
-        [FindsBy(How = How.LinkText,Using = "Black-2.50")]
+        [FindsBy(How = How.LinkText,Using = "Brown-2.50")]
         public IWebElement? SelectPower {  get; set; }
 
         [FindsBy(How = How.Id, Using = "cart-panel-button-0")]
         public IWebElement? AddSelectedProduct { get; set; }
 
-        public void SelectPowerLink()
+        public void SelectSizeLink()
         {
             SelectPower?.Click();
         }

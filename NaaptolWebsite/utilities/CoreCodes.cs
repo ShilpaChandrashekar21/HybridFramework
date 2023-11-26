@@ -49,6 +49,8 @@ namespace NaaptolWebite
             sparkReporter = new ExtentSparkReporter(currDir + "/extentReports/extent-report"
                 + DateTime.Now.ToString("yyyy_MM_dd/HH-mms-s") + ".html");
 
+            extent.AttachReporter(sparkReporter);
+
             if (properties["browser"].ToLower() == "chrome")
                 {
                     driver = new ChromeDriver();
@@ -88,7 +90,7 @@ namespace NaaptolWebite
             Screenshot screenshot = takesScreenshot.GetScreenshot();
 
             string curDir = Directory.GetParent(@"../../../").FullName;
-            string filename = curDir + "/ScreenShot/ss_" + DateTime.Now.ToString("dd/mm/yyyy_hhmmss") + ".png";
+            string filename = curDir + "/screenShots/ss_" + DateTime.Now.ToString("dd/mm/yyyy_hhmmss") + ".png";
             screenshot.SaveAsFile(filename);
         }
 

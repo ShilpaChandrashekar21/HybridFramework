@@ -17,7 +17,7 @@ namespace NaaptolWebsite.pomObjects
             PageFactory.InitElements(driver, this);
         }
 
-        [FindsBy(How = How.LinkText,Using = "Reading Glasses with LED Lights (LRG4)")]
+        [FindsBy(How = How.LinkText,Using = "Colored Daily Use Reading Glasses (BRG9)")]
         public IWebElement? ProductInCart { get; set; }
 
         [FindsBy(How = How.XPath, Using = "//*[@class='head_qty']/input")]

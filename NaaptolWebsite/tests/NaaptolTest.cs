@@ -12,15 +12,16 @@ using System.Threading.Tasks;
 
 namespace NaaptolWebsite.tests
 {
-    [TestFixture]
+    [TestFixture,Order(1)]
     internal class NaaptolTest : CoreCodes
     {
-        [Test,Category("Regression testing")]
-        //[TestCase("eyewear")]
+        [Test]
+        
         public void SearchProductTest()
         {
             var naaptolHomePage = new NaaptolHomePage(driver);
 
+            //DDT
             string? currDir = Directory.GetParent(@"../../../")?.FullName;
             string? excelFilePath = currDir + "/testExcelData/InputData.xlsx";
             string? sheetName = "NaaptolTestData";
@@ -32,12 +33,20 @@ namespace NaaptolWebsite.tests
                 string? searchText = searchData.ProductName;
 
                 var selectProduct = naaptolHomePage.SearchForProduct(searchText);
-
-                Assert.That(driver.Url.Contains(searchText));
+                try
+                {
+                    //Extent 
+                    Assert.That(driver.Url.Contains(searchText));
+                    test = extent.CreateTest("Naaptol Test - Pass");
+                    test.Pass("SearchProductTest success");
+                }
+                catch
+                {
+                    test = extent.CreateTest("Naaptol Test - Fail");
+                    test.Fail("SearchProductTest failed");
+                }
 
                 var addProduct = selectProduct.SelectAProduct();
-
-
                 List<string> lstWindow = driver.WindowHandles.ToList();
 
                 foreach (var i in lstWindow)
@@ -46,8 +55,20 @@ namespace NaaptolWebsite.tests
                     driver.SwitchTo().Window(i);
                 }
 
-                addProduct.SelectPowerLink();
+                try
+                {
+                    Assert.That(driver.Url.Contains("colored"));
+                    test = extent.CreateTest("Select Product Test- Pass");
+                    test.Pass("Select Product Test success");
+                }
+                catch
+                {
+                    test = extent.CreateTest("Select Product Test - Fail");
+                    test.Fail("Select Product Test failed");
+                }
 
+
+                addProduct.SelectSizeLink();
                 var cart = addProduct.AddSelectedProductLink();
 
                 DefaultWait<IWebDriver> fwait = new DefaultWait<IWebDriver>(driver);
@@ -55,10 +76,10 @@ namespace NaaptolWebsite.tests
                 fwait.IgnoreExceptionTypes(typeof(NoSuchElementException));
                 Console.WriteLine(fwait.Message);
 
-                IWebElement cartPage = fwait.Until(d => d.FindElement(By.LinkText("Reading Glasses with LED Lights (LRG4)")));
+                IWebElement cartPage = fwait.Until(d => d.FindElement(By.LinkText("Colored Daily Use Reading Glasses (BRG9)")));
 
                 Console.WriteLine("Product: " + cart.GetProductInCart());
-                Assert.That(cart.GetProductInCart().Contains("reading-glasses-with-led-lights-lrg4"));
+                Assert.That(cart.GetProductInCart().Contains("colored-daily-use-reading-glasses"));
 
 
                 cart.ChangeProductQuantity();
@@ -71,20 +92,26 @@ namespace NaaptolWebsite.tests
                 IWebElement cartEmpty = fwait.Until(d => d.FindElement(By.XPath("//span[@class='font-bold'][text()='You have No Items in Cart !!! ']")));
 
                 Console.WriteLine(cart.GetCartEmpty());
+                ScreenShotTest();
                 try
                 {
-                    Assert.That(cart.GetCartEmpty().Contains("No Items in Cart"));
-                    test = extent.CreateTest("Naaptol Test - Pass");
-                    test.Pass("SearchProductTest success");
+
+                    Assert.That(cart.GetCartEmpty().Contains("No Item in Cart"));
+                    test = extent.CreateTest("Cart In Product Test - Pass");
+                    test.Pass("Cart In Product Test success");
                 }
                 catch
                 {
-                    test = extent.CreateTest("Naaptol Test - Fail");
-                    test.Fail("SearchProductTest failed");
+                    test = extent.CreateTest("Cart In Product Test - Fail");
+                    test.Fail("Cart In Product Test failed");
                 }
-               
+
 
                 cart.ClickCloseCart();
+
+
+
+
             }
 
         }

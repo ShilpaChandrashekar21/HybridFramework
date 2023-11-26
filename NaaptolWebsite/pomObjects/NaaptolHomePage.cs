@@ -20,6 +20,8 @@ namespace NaaptolWebsite.pomObjects
         [FindsBy(How = How.Id , Using = "header_search_text")]
         public IWebElement? SearchBox { get; set; }
 
+        
+
         public Select5thProductPage SearchForProduct(string productName)
         {
             SearchBox?.Click();
