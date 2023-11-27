@@ -1,15 +1,18 @@
 ﻿using AventStack.ExtentReports;
+//using AventStack.ExtentReports.Model;
 using AventStack.ExtentReports.Reporter;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.DevTools;
 using OpenQA.Selenium.Edge;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NaaptolWebite
+namespace NaaptolWebsite
 {
     internal class CoreCodes
     {
@@ -93,6 +96,8 @@ namespace NaaptolWebite
             string filename = curDir + "/screenShots/ss_" + DateTime.Now.ToString("dd/mm/yyyy_hhmmss") + ".png";
             screenshot.SaveAsFile(filename);
         }
+
+       
 
         [OneTimeTearDown] 
         public void Cleanup()
