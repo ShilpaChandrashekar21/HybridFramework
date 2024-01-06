@@ -129,7 +129,9 @@ namespace SeleniumNUnitExamples
                 driver.FindElement(By.XPath("//button[@type='submit']")));
             js.ExecuteScript("arguments[0].click(); ",
                 driver.FindElement(By.XPath("//button[@type='submit']")));
+           
             ScreenShotTest();
+            
             ClearForm(emailInput);
             ClearForm(password);
             Thread.Sleep(2000);

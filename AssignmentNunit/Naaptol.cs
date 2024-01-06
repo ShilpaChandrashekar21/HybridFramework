@@ -95,7 +95,7 @@ namespace AssignmentNUnit
         {
             DefaultWait<IWebDriver> fwait = new DefaultWait<IWebDriver>(driver);
             fwait.Timeout = TimeSpan.FromSeconds(10);
-            fwait.PollingInterval = TimeSpan.FromMicroseconds(100);
+            fwait.PollingInterval = TimeSpan.FromMicroseconds(500);
             fwait.IgnoreExceptionTypes(typeof(NoSuchElementException));
             Console.WriteLine(fwait.Message);
 

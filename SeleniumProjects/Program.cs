@@ -83,6 +83,19 @@ foreach (var driver in drivers)
 
 }
 
+public static class ClassA
+{
+    static int a = 5;
+    public static void Method()
+    {
+         int b = 5;
+        
+        Console.WriteLine(a+b);
+
+    }
+}
+
+
 
 
 

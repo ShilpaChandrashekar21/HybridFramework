@@ -11,7 +11,7 @@ namespace BunnyCart.tests
     internal class SearchProductTest:CoreCodes
     {
         [Test]
-        [TestCase("Water", 4)]
+        [TestCaseSource(nameof(data))]
         public void SearchInputTest(string pname, int count)
         {
             var homePage = new BunnyCartHomePage(driver);
@@ -40,6 +40,16 @@ namespace BunnyCart.tests
                 Console.WriteLine("Clicked On wrong Product");
             }
 
+        }
+
+        static object[] data()
+        {
+            return new object[]
+            {
+                new object[] { "water", "5" },
+                new object[] { "lily", "4" }
+
+            };
         }
     }
 }
