@@ -1,0 +1,17 @@
+2023-12-28 17:20:49.457 +05:30 [INF] Google Search Test
+2023-12-28 17:20:49.543 +05:30 [INF] ************************************************
+2023-12-28 17:20:49.642 +05:30 [INF] Starting the Google search test
+2023-12-28 17:20:49.645 +05:30 [INF] Opened Google homepage
+2023-12-28 17:20:49.974 +05:30 [INF] Entered search text: hp laptop
+2023-12-28 17:20:54.260 +05:30 [INF] Clicked on the Search button
+2023-12-28 17:20:54.276 +05:30 [INF] Google search test completed
+2023-12-28 17:20:54.276 +05:30 [INF] Google Search TestPassed
+2023-12-28 17:20:54.276 +05:30 [INF] ------------------------------------------------------------------------
+2023-12-28 17:20:55.711 +05:30 [INF] Starting the Google search test
+2023-12-28 17:20:55.711 +05:30 [INF] Opened Google homepage
+2023-12-28 17:20:56.072 +05:30 [INF] Entered search text: selenium
+2023-12-28 17:20:58.486 +05:30 [INF] Clicked on the Search button
+2023-12-28 17:20:58.795 +05:30 [INF] Google search test completed
+2023-12-28 17:20:58.795 +05:30 [INF] Google Search TestPassed
+2023-12-28 17:20:58.795 +05:30 [INF] ------------------------------------------------------------------------
+2023-12-28 17:21:01.298 +05:30 [INF] ************************************************

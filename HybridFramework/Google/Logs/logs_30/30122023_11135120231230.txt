@@ -1,0 +1,19 @@
+2023-12-30 11:13:51.670 +05:30 [INF] Google Search Test
+2023-12-30 11:13:51.758 +05:30 [INF] ************************************************
+2023-12-30 11:13:51.917 +05:30 [INF] Starting the Google search test
+2023-12-30 11:13:51.922 +05:30 [INF] Opened Google homepage
+2023-12-30 11:13:52.081 +05:30 [INF] Entered search text : hp laptop
+2023-12-30 11:13:52.495 +05:30 [ERR] Test failed for Google Search Test 
+ Exception:
+invalid element state
+  (Session info: chrome=120.0.6099.130)
+2023-12-30 11:13:52.495 +05:30 [INF] ------------------------------------------------------------------------
+2023-12-30 11:13:54.003 +05:30 [INF] Starting the Google search test
+2023-12-30 11:13:54.003 +05:30 [INF] Opened Google homepage
+2023-12-30 11:13:54.069 +05:30 [INF] Entered search text : selenium
+2023-12-30 11:13:54.316 +05:30 [ERR] Test failed for Google Search Test 
+ Exception:
+invalid element state
+  (Session info: chrome=120.0.6099.130)
+2023-12-30 11:13:54.316 +05:30 [INF] ------------------------------------------------------------------------
+2023-12-30 11:13:56.569 +05:30 [INF] ************************************************
